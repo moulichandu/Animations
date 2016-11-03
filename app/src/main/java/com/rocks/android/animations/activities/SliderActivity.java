@@ -17,6 +17,8 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.rocks.android.animations.R;
+import com.rocks.android.animations.fragment.AnimaterSetFragment;
+import com.rocks.android.animations.fragment.ObjectAnimatorFragment;
 import com.rocks.android.animations.fragment.ValueAnimatorFragment;
 
 public class SliderActivity extends AppCompatActivity
@@ -114,11 +116,16 @@ RelativeLayout container;
         int id = menuItem.getItemId();
 
         if (id == R.id.nav_value) {
+            transaction.replace(R.id.container, ValueAnimatorFragment.newInstance("",""));
+            transaction.addToBackStack(null);
+            transaction.commit();
             // Handle the camera action
         } else if (id == R.id.nav_obj) {
-
+            transaction.replace(R.id.container, ObjectAnimatorFragment.newInstance("",""));
+            transaction.addToBackStack(null);
+            transaction.commit();
         } else if (id == R.id.nav_set) {
-            transaction.replace(R.id.container, ValueAnimatorFragment.newInstance("",""));
+            transaction.replace(R.id.container, AnimaterSetFragment.newInstance("",""));
             transaction.addToBackStack(null);
             transaction.commit();
         } else if (id == R.id.nav_view) {
